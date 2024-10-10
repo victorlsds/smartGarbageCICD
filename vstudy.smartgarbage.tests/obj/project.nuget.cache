@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "minoKpyw5ZU=",
+  "dgSpecHash": "uwV0mNZRvg8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Victor Lucas\\source\\repos\\vstudy.smartgarbage.tests\\vstudy.smartgarbage.tests.csproj",
+  "projectFilePath": "C:\\study-workspace\\smartGarbageCICD\\vstudy.smartgarbage.tests\\vstudy.smartgarbage.tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Victor Lucas\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Victor Lucas\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
