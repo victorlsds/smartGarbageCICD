@@ -9,14 +9,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["vstudy.smartgarbage.csproj", "."]
-RUN dotnet restore "./vstudy.smartgarbage.csproj"
+RUN dotnet restore "./vstudy.smartgarbage"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "./vstudy.smartgarbage.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./vstudy.smartgarbage" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./vstudy.smartgarbage.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./vstudy.smartgarbage" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
