@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vstudy.smartgarbage.tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e71c687fed0034bb8bcaa13bb94525712dcfcca6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37e5e4ea52b6300bab27c0c70ec049e6110bb31e")]
 [assembly: System.Reflection.AssemblyProductAttribute("vstudy.smartgarbage.tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vstudy.smartgarbage.tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
