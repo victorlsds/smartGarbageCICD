@@ -28,8 +28,6 @@ jobs:
         uses: docker/build-push-action@v6 
         with: 
           push: true
-          context: ./vstudy.smartgarbage
-          file: ./vstudy.smartgarbage/Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
   deploy:
