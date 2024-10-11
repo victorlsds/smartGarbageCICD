@@ -3,7 +3,7 @@ on:
     branches:
       - "main"
 env:
-  IMAGE_NAME: smartgarbage-api-dev
+  IMAGE_NAME: smartgarbage-dotnet
   AZURE_WEBAPP_NAME: smartgarbage-api-dev
 
 jobs:
