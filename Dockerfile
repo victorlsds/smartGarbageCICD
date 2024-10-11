@@ -8,7 +8,7 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["./vstudy.smartgarbage.csproj", "."]
+COPY ["vstudy.smartgarbage/vstudy.smartgarbage.csproj", "."]
 RUN dotnet restore "./vstudy.smartgarbage"
 COPY . .
 WORKDIR "/src/."
