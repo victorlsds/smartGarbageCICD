@@ -1,4 +1,4 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
@@ -8,17 +8,30 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["vstudy.smartgarbage/vstudy.smartgarbage.csproj", "."]
-RUN dotnet restore "./vstudy.smartgarbage"
+
+# Copie o arquivo do projeto para o contêiner
+COPY ["vstudy.smartgarbage/vstudy.smartgarbage.csproj", "vstudy.smartgarbage/"]
+
+# Restaure as dependências do projeto
+RUN dotnet restore "vstudy.smartgarbage/vstudy.smartgarbage.csproj"
+
+# Copie todos os outros arquivos do projeto
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "./vstudy.smartgarbage" -c $BUILD_CONFIGURATION -o /app/build
+
+# Compile o projeto
+RUN dotnet build "vstudy.smartgarbage/vstudy.smartgarbage.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./vstudy.smartgarbage" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# Publique o projeto
+RUN dotnet publish "vstudy.smartgarbage/vstudy.smartgarbage.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
+
+# Copie os arquivos publicados do estágio de publicação
 COPY --from=publish /app/publish .
+
+# Defina o comando de entrada
 ENTRYPOINT ["dotnet", "vstudy.smartgarbage.dll"]
