@@ -1,4 +1,4 @@
-﻿name: .NET
+﻿name: DevelopmentCI
 on:
   push:
     branches: [ "develop" ]
